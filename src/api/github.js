@@ -8,4 +8,8 @@ function reposBy(username) {
   return github.get(`/users/${username}/repos`)
 }
 
-module.exports = { reposBy }
+function repoInfo(username, reponame) {
+  return github.get(`/users/${username}/${reponame}`)
+}
+
+module.exports = { reposBy, repoInfo }

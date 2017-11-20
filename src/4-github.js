@@ -1,6 +1,7 @@
-const github = require('../api/github')
+const github = require('./api/github');
 
-github.reposBy('facebook')
+function findRepos(username) {
+github.reposBy(username)
   .then(res => {
     const repos = res.data
     console.log(`Found ${repos.length} repos:`)
@@ -8,6 +9,22 @@ github.reposBy('facebook')
       console.log(`${repo.name}`)
     })
   })
+}
+
+// function findRepoInfo(username, reponame) {
+//   github.repoInfo(username, reponame)
+//   .then(res => {
+//     const repos = res.data
+//     console.log(`Found ${repos.length} repos:`)
+//     repos.forEach(repo => {
+//       console.log(`${repo.name}`)
+//     })
+//   })
+// }
+
+findRepos('Microsoft');
+// findRepoInfo('facebook', 'react');
+
 
 /*
 
